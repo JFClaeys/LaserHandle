@@ -1,0 +1,39 @@
+
+typedef struct {
+  byte aData;
+  byte aDelay;
+} TSeqElem;
+
+typedef struct {
+   /* |
+      V
+      .  .  .  .  .    
+      .  x  x  x  .
+      x  .  .  .  x
+      x  .  .  .  x
+      x  .  .  .  x
+      x  x  x  x  x
+      x  .  .  .  x  
+      x  .  .  .  x
+
+     =   =  =  =  =    
+     3F 44 44 44 3F
+   */
+   byte drawing[5];
+} TAscii;
+
+
+/*this array is coded form left to right, 
+  since that is the movment the handle will use 
+  */
+const TAscii alphas[] PROGMEM = {
+	{ 0x3F, 0x44, 0x44, 0x44, 0x3F },   // A
+	{ 0x7F, 0x49, 0x49, 0x49, 0x36 },   // B
+	{ 0x3E, 0x41, 0x41, 0x41, 0x22 },   // C
+	{ 0x7F, 0x41, 0x41, 0x41, 0x3E },   // D
+	{ 0x7F, 0x49, 0x49, 0x49, 0x41 },   // E
+	{ 0x7F, 0x48, 0x48, 0x48, 0x40 },   // F
+  { 0x3E, 0x41, 0x49, 0x49, 0x2E },   // G
+  { 0x7F, 0x08, 0x08, 0x08, 0x7F },   // H
+  { 0x00, 0x41, 0x7F, 0x41, 0x00 }   // I
+};
