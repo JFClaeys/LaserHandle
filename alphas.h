@@ -1,31 +1,31 @@
 
 typedef struct {
-  byte aData;
-  byte aDelay;
+  byte aData;   // what to display
+  byte aDelay;  // how long to display it
 } TSeqElem;
 
 typedef struct {
    /* |
       V
-      .  .  .  .  .    
+      .  .  .  .  . 
       .  x  x  x  .
       x  .  .  .  x
       x  .  .  .  x
       x  .  .  .  x
       x  x  x  x  x
-      x  .  .  .  x  
+      x  .  .  .  x
       x  .  .  .  x
 
-     =   =  =  =  =    
+     =   =  =  =  =
      3F 44 44 44 3F
    */
    byte drawing[5];
 } TAscii;
 
 
-/*this array is coded form left to right, 
-  since that is the movment the handle will use 
-  */
+/*this array is coded from left to right,
+  since that is the movement the handle will use
+*/
 const TAscii alphas[] PROGMEM = {
   { 0x3F, 0x44, 0x44, 0x44, 0x3F },   // A
   { 0x7F, 0x49, 0x49, 0x49, 0x36 },   // B
