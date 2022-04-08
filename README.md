@@ -8,13 +8,12 @@ Even if internal resistors are supplied, a 20 ohm resistor is attached to each n
 The circuit has been tested with a Arduino Uno and a STM32 blue pill.  
 Arduino nano could handle it as well, but maybe the pinout will need to be revised
 The 74HC595 was chosen for its ease of control
-
 A SD card reader is also part of the project, handled via SPI :                                
-   SR_LATCH_PIN : ST_CP - pin 12  store register clock pin  -  PB3 = STM32-pin 19  /  uno-pin 3
-   SR_CLOCK_PIN : SH_CP - pin 11  shift register clock pin  -  PB4 = STM32-pin 20  /  uno-pin 4
-   SR_DATA_PIN  : DS    - pin 14  serial data input         -  PB5 = STM32-pin 21  /  uno-pin 5
-                  OE    - pin 13  Output enabled  is connected to ground 
-Eventually, the SD card reader cold be replaced by FLASH WinBond 64 megs chips, still using the SPI protocol.
+
+Eventually, the SD card reader could/will be replaced by a Flash WinBond 64 megs chips, still using the SPI protocol.
 It has a smaller footprint then the SD card, and I suspect it will consume less current while providing faster access to data
 
-
+The SD / Flash is used to hold sequences of patterns, where each laser will be triggered for a certain amount of time.
+Given the size of RAM available on arduino, the sequences will be read on the support periodically.
+When using lettering as a sequence, there is an array of patterns defining uppercase alphabet letters that is placed on Arduino's flash memory (see alphas.h)
+So when writing a sequence, one would just need to specify the letter and the system will look over the actual pattern.
